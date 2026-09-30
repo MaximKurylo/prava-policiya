@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Права під час поліцейської перевірки в Австрії</title>
+<style>
+  :root{
+    --paper:#f7f4ec; --card:#ffffff; --ink:#1e2320; --ink-soft:#4a534c;
+    --line:#e2ddd0; --green:#2f6b4f; --green-deep:#234f3b; --green-soft:#e8f0ea;
+    --amber:#b5730f; --amber-soft:#fbf1dd; --red:#a52f2f; --red-soft:#f8e6e2;
+    --blue:#2b5578; --blue-soft:#e6eef4;
+    --shadow:0 1px 2px rgba(30,35,32,.05),0 6px 20px rgba(30,35,32,.06);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:150px;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .serif{font-family:Georgia,"Times New Roman",serif;}
+  header{position:sticky;top:0;z-index:50;background:rgba(247,244,236,.92);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line);}
+  .head-inner{max-width:920px;margin:0 auto;padding:16px 22px 14px;}
+  .kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:4px;}
+  header h1{font-family:Georgia,serif;font-weight:700;font-size:clamp(19px,3.4vw,25px);margin:0 0 12px;line-height:1.2;color:var(--ink);}
+  .search-wrap{position:relative;}
+  #search{width:100%;padding:12px 40px 12px 42px;font-size:16px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);outline:none;font-family:inherit;transition:border-color .15s,box-shadow .15s;}
+  #search:focus{border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft);}
+  .search-ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--ink-soft);font-size:16px;pointer-events:none;}
+  #clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:none;background:var(--line);color:var(--ink);cursor:pointer;width:26px;height:26px;border-radius:50%;font-size:15px;line-height:1;display:none;align-items:center;justify-content:center;}
+  #clear:hover{background:#d3ccbc;}
+  .result-note{font-size:12.5px;color:var(--ink-soft);margin-top:8px;min-height:16px;}
+  .actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:8px;}
+  .act-btn{font-family:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:9px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:all .15s;}
+  .act-btn:hover{border-color:var(--green);color:var(--green);}
+  .act-btn.primary{background:var(--green);border-color:var(--green);color:#fff;}
+  .act-btn.primary:hover{background:var(--green-deep);color:#fff;}
+  .act-hint{font-size:12px;color:#93897a;}
+  @media print{.actions{display:none;}}
+  .chips{max-width:920px;margin:0 auto;padding:14px 22px 4px;display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{font-size:12.5px;font-weight:600;padding:6px 13px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink-soft);cursor:pointer;transition:all .15s;white-space:nowrap;}
+  .chip:hover{border-color:var(--green);color:var(--green);}
+  .chip.active{background:var(--green);border-color:var(--green);color:#fff;}
+  main{max-width:920px;margin:0 auto;padding:10px 22px 90px;}
+  .intro{background:var(--green-soft);border:1px solid #d3e2d8;border-radius:14px;padding:18px 20px;margin:16px 0 26px;font-size:14.5px;color:var(--ink-soft);}
+  .intro strong{color:var(--green-deep);}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px;padding-bottom:8px;border-bottom:2px solid var(--ink);}
+  .sec-num{font-family:Georgia,serif;font-size:26px;font-weight:700;color:var(--green);line-height:1;}
+  .sec-head h2{font-family:Georgia,serif;font-size:clamp(18px,3vw,22px);margin:0;font-weight:700;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:16px 0;box-shadow:var(--shadow);}
+  .card h3{font-family:Georgia,serif;font-size:17.5px;margin:0 0 3px;line-height:1.3;color:var(--green-deep);}
+  .de{font-size:12px;color:#93897a;font-style:italic;margin:0 0 12px;letter-spacing:.01em;}
+  .card p{margin:0 0 10px;}
+  .card ul{margin:0 0 10px;padding-left:20px;}
+  .card li{margin-bottom:6px;}
+  .card li ul{margin-top:6px;margin-bottom:0;}
+  .lawtag{font-size:11px;font-weight:700;color:var(--blue);background:var(--blue-soft);padding:1px 7px;border-radius:5px;white-space:nowrap;display:inline-block;}
+  .box{border-radius:11px;padding:13px 15px;margin:12px 0 4px;font-size:14px;}
+  .box .box-t{font-weight:700;font-size:12.5px;letter-spacing:.02em;text-transform:uppercase;display:block;margin-bottom:5px;}
+  .box.tip{background:var(--green-soft);border-left:4px solid var(--green);}
+  .box.tip .box-t{color:var(--green-deep);}
+  .box.warn{background:var(--red-soft);border-left:4px solid var(--red);}
+  .box.warn .box-t{color:var(--red);}
+  .box.note{background:var(--amber-soft);border-left:4px solid var(--amber);}
+  .box.note .box-t{color:var(--amber);}
+  .box p:last-child,.box ul:last-child{margin-bottom:0;}
+  ol.check{list-style:none;counter-reset:c;padding-left:0;margin:6px 0 0;}
+  ol.check li{counter-increment:c;position:relative;padding:9px 12px 9px 46px;border-bottom:1px solid var(--line);font-weight:500;}
+  ol.check li:last-child{border-bottom:none;}
+  ol.check li::before{content:counter(c);position:absolute;left:10px;top:8px;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-family:Georgia,serif;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  .no-results{display:none;text-align:center;padding:50px 20px;color:var(--ink-soft);}
+  .phrase{border:1px solid var(--line);border-radius:11px;padding:13px 15px;margin:11px 0;background:#fcfbf7;position:relative;}
+  .phrase .de-say{font-family:Georgia,serif;font-size:16.5px;font-weight:700;color:var(--green-deep);line-height:1.35;margin:0 0 5px;padding-right:34px;}
+  .phrase .ua-say{font-size:13.5px;color:var(--ink-soft);margin:0;}
+  .phrase .copy{position:absolute;top:11px;right:11px;border:none;background:var(--green-soft);color:var(--green-deep);width:28px;height:28px;border-radius:7px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+  .phrase .copy:hover{background:#d3e2d8;}
+  .phrase .copy.done{background:var(--green);color:#fff;}
+  .phrase-group{font-weight:700;font-size:13px;color:var(--amber);text-transform:uppercase;letter-spacing:.04em;margin:16px 0 2px;}
+  .phrase-group:first-of-type{margin-top:6px;}
+  .no-results.show{display:block;}
+  .no-results .big{font-size:34px;margin-bottom:8px;}
+  mark{background:#ffe08a;color:inherit;border-radius:3px;padding:0 1px;}
+  .hidden{display:none !important;}
+  footer{max-width:920px;margin:0 auto;padding:0 22px 60px;font-size:12.5px;color:#93897a;}
+  footer .disc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;}
+  @media (max-width:640px){
+    html{scroll-padding-top:200px;}
+    body{line-height:1.55;-webkit-tap-highlight-color:rgba(47,107,79,.15);}
+    .head-inner{padding:11px 15px 12px;}
+    header h1{font-size:19px;margin-bottom:10px;}
+    .kicker{margin-bottom:3px;}
+    #search{padding:13px 40px 13px 40px;border-radius:11px;}
+    main,footer{padding-left:15px;padding-right:15px;}
+    main{padding-top:6px;}
+    .chips{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:12px 15px 6px;gap:7px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 92%,transparent);}
+    .chips::-webkit-scrollbar{display:none;}
+    .chip{padding:9px 15px;font-size:13.5px;flex:0 0 auto;}
+    .actions{gap:7px;}
+    .act-btn{flex:1 1 auto;min-width:44%;padding:11px 12px;font-size:14px;text-align:center;}
+    .act-hint{flex:1 0 100%;font-size:11.5px;margin-top:2px;}
+    .intro{padding:15px 16px;margin:14px 0 22px;font-size:14px;}
+    .sec-head{margin-top:28px;gap:9px;}
+    .sec-num{font-size:22px;}
+    .card{padding:15px 15px;margin:13px 0;border-radius:12px;}
+    .card h3{font-size:16.5px;}
+    .card ul{padding-left:18px;}
+    .phrase{padding:13px 14px 14px;}
+    .phrase .de-say{font-size:16px;padding-right:0;margin-bottom:8px;}
+    .phrase .ua-say{font-size:14px;}
+    .phrase .copy{position:static;width:100%;height:auto;border-radius:9px;margin-top:10px;padding:9px;font-size:13px;font-weight:600;gap:6px;}
+    .phrase .copy::after{content:" Копіювати фразу";}
+    ol.check li{padding:11px 12px 11px 46px;}
+    .lawtag{white-space:normal;}
+  }
+  @media (max-width:380px){header h1{font-size:17.5px;}.phrase .de-say{font-size:15px;}}
+  @media print{header{position:static;background:#fff;}.chips,#clear,.search-wrap,.result-note{display:none;}.card,.box{box-shadow:none;break-inside:avoid;}body{background:#fff;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="head-inner">
+    <div class="kicker">Австрія · Ваші права</div>
+    <h1 class="serif">Поліцейська перевірка: що поліція має право робити і як вам діяти</h1>
+    <div class="search-wrap">
+      <span class="search-ico">🔍</span>
+      <input id="search" type="text" placeholder="Пошук: напр. «обшук», «право мовчати», «скарга», Ausweis…" autocomplete="off">
+      <button id="clear" title="Очистити">✕</button>
+    </div>
+    <div class="result-note" id="resultNote"></div>
+    <div class="actions">
+      <button id="saveBtn" class="act-btn primary">⬇ Зберегти файл</button>
+      <button id="pdfBtn" class="act-btn">🖨 PDF</button>
+      <span class="act-hint" id="saveHint">Збережіть, щоб відкрити на телефоні (працює офлайн)</span>
+    </div>
+  </div>
+</header>
+<div class="chips" id="chips">
+  <button class="chip active" data-cat="all">Все</button>
+  <button class="chip" data-cat="powers">Повноваження поліції</button>
+  <button class="chip" data-cat="rights">Ваші права</button>
+  <button class="chip" data-cat="behavior">Як поводитися</button>
+  <button class="chip" data-cat="phrases">Фрази німецькою</button>
+  <button class="chip" data-cat="checklist">Чеклісти</button>
+  <button class="chip" data-cat="legal">Оскарження</button>
+</div>
+<main id="main">
+  <div class="intro" data-searchable>
+    Це переклад та пояснення матеріалів про <strong>повноваження поліції в Австрії</strong> та <strong>ваші права під час поліцейської операції</strong> — особливо у ситуаціях, пов'язаних із законодавством про іноземців (притулок, перебування, реєстрація). Кожен розділ пояснює <strong>що поліція може</strong>, <strong>чого вона не може вимагати</strong> та <strong>як діяти в конкретній ситуації</strong>. У квадратних значках наведено оригінальні статті австрійських законів. Скористайтеся пошуком або фільтрами вгорі.
+  </div>
+  <section class="sec-head" data-cat="powers"><span class="sec-num">·</span><h2>Огляд тем</h2></section>
+  <div class="card" data-cat="powers" data-searchable>
+    <h3>Про що йдеться</h3><p class="de">Überblick</p>
+    <p><strong>1. Повноваження поліції — що поліція має право робити?</strong></p>
+    <ul><li>Основні передумови для дій поліції</li><li>Можливі правові підстави (огляд)</li><li>Ключові повноваження детально:<ul><li>(1) Запит інформації (Auskunftsverlangen)</li><li>(2) Встановлення особи (Identitätsfeststellung)</li><li>(3) Вхід та обшук ділянок і приміщень</li></ul></li><li>Застосування безпосереднього примусу</li></ul>
+    <p><strong>2. Ваші права у зв'язку з поліцейськими операціями</strong></p>
+    <ul><li>Суттєві права</li><li>Правовий захист (оскарження)</li><li>Правильна поведінка під час операції</li><li>Чеклісти</li></ul>
+  </div>
+  <section class="sec-head" data-cat="powers"><span class="sec-num">1</span><h2>Повноваження поліції — що поліція має право робити?</h2></section>
+  <div class="card" data-cat="powers" data-searchable>
+    <h3>Основні передумови для будь-яких дій поліції</h3><p class="de">Grundvoraussetzungen für polizeiliches Handeln</p>
+    <ul><li>Дії поліції завжди потребують <strong>законної підстави</strong> (gesetzliche Grundlage). Немає закону — немає повноваження.</li><li>Особливо суворі вимоги при втручанні в <strong>основні права</strong> — напр. недоторканність житла (Hausrecht) чи право на приватне життя.</li><li>Застосоване повноваження має служити тій <strong>меті</strong> (Zweck), заради якої воно передбачене.</li><li>Навіть за наявності закону дія має бути <strong>пропорційною</strong> (verhältnismäßig) і щадити ваші права.</li><li>Ви маєте <strong>право на роз'яснення</strong> приводу та мети втручання — на запит. Поліція не може «дописувати» підстави заднім числом.</li><li>Ви маєте право дізнатися <strong>службовий номер</strong> (Dienstnummer) — на запит.</li></ul>
+    <div class="box tip"><span class="box-t">Що це означає для вас</span><p>Завжди можна спокійно запитати: «На якій правовій підставі ви дієте? Яка мета? Назвіть, будь ласка, ваш службовий номер». Поліція зобов'язана відповісти. Це не опір — це ваше право.</p></div>
+  </div>
+  <div class="card" data-cat="powers" data-searchable>
+    <h3>Можливі правові підстави (огляд законів)</h3><p class="de">Rechtsgrundlagen für polizeiliche Befugnisse</p>
+    <ul><li><span class="lawtag">StPO</span> <strong>Кримінально-процесуальний кодекс</strong> — розслідування <strong>злочинів</strong>, переслідування підозрюваних.</li><li><span class="lawtag">SPG</span> <strong>Закон про поліцію безпеки</strong> — громадський спокій, порядок, безпека; перший загальний обов'язок допомоги.</li><li><span class="lawtag">VStG</span> <strong>Закон про адмінпокарання</strong> — відповідальність за <strong>адміністративні правопорушення</strong>.</li><li><span class="lawtag">FPG</span> <strong>Закон про поліцію у справах іноземців</strong> — в'їзні документи, відмова у в'їзді, припинення перебування, депортація, толерування, видача документів іноземцям.</li><li><span class="lawtag">BFA-VG</span> <strong>Процесуальний закон BFA</strong> — загальні положення для іноземців у провадженні перед BFA, представництвами Австрії, Федеральним адмінсудом (BVwG).</li><li><span class="lawtag">GVG-B / WGVG</span> <strong>Закони про базове забезпечення</strong> — забезпечення нужденних та осіб, що потребують захисту.</li></ul>
+    <div class="box note"><span class="box-t">Ключова відмінність</span><p>Важливо розрізняти, за яким законом діє поліція: за кримінальним (StPO, підозра у злочині) чи за законодавством про іноземців (FPG/BFA-VG). Від цього залежать ваші обов'язки.</p></div>
+  </div>
+  <div class="card" data-cat="powers" data-searchable>
+    <h3>(1) Запит інформації — коли поліція може вимагати відомості?</h3><p class="de">Auskunftsverlangen</p>
+    <div class="box warn"><span class="box-t">Головне правило</span><p>При заходах поліції <strong>у справах іноземців немає законного обов'язку співпрацювати чи давати пояснення</strong>. Вас не можна змусити відповідати.</p></div>
+    <p>Є лише <strong>три</strong> основні ситуації, у яких запит інформації має підставу:</p>
+    <ul><li><strong>1. Перший загальний обов'язок допомоги</strong> <span class="lawtag">§34 SPG</span> — напр. пожежа, медична надзвичайна ситуація.</li><li><strong>2. Обов'язок реєстрації місця проживання</strong> <span class="lawtag">§12 Abs.2 MeldeG</span> — стосується <strong>надавачів житла</strong>: кому за останні 6 місяців або зараз надавалося житло. Порушення карається.</li><li><strong>3. Для потреб поліції у справах іноземців</strong> <span class="lawtag">§33 FPG</span> — відомості про незаконний в'їзд/перебування:<ul><li>від осіб у «близьких стосунках» з іноземцем;</li><li>немає кримінальної відповідальності за неправдиву заяву;</li><li><strong>неможливо застосувати примус чи покарання</strong>;</li><li>це лише право задавати питання, яке <strong>не можна примусово виконати</strong>.</li></ul></li></ul>
+    <div class="box tip"><span class="box-t">Що це означає для вас</span><p>Поза цими трьома випадками ви не зобов'язані нічого повідомляти. Навіть за §33 FPG вас не покарають за мовчання. Найкраще: «Я не даю жодних відомостей».</p></div>
+  </div>
+  <div class="card" data-cat="powers" data-searchable>
+    <h3>(2) Встановлення особи — коли можуть перевірити документи?</h3><p class="de">Identitätsfeststellung</p>
+    <p>Перевірка особи дозволена у таких ситуаціях:</p>
+    <ul><li>При <strong>підозрі у злочині</strong> <span class="lawtag">§118 StPO</span>.</li><li>При підозрі в <strong>незаконному перебуванні іноземця</strong> <span class="lawtag">§35 Abs.1 Z4 SPG</span> — є обов'язок співпрацювати й терпіти захід.</li><li>При припущенні <strong>незаконного в'їзду/перебування</strong> <span class="lawtag">§34 FPG</span>:<ul><li>припущення на конкретних фактах;</li><li>при перевірці на місці <span class="lawtag">§9a GVG-B</span>;</li><li>обов'язок терпіти захід і співпрацювати.</li></ul></li><li>Встановлення особи іноземця <span class="lawtag">§36 BFA-VG</span>:<ul><li>при наказі про затримання <span class="lawtag">§34 BFA-VG</span>, або</li><li>при перебуванні поза межами територіального обмеження.</li></ul></li></ul>
+    <div class="box note"><span class="box-t">Зверніть увагу</span><p>На відміну від запиту інформації, тут у деяких випадках справді є обов'язок співпрацювати (назвати особу, показати документ). Але це стосується лише <strong>встановлення особи</strong> — не відповідей на інші питання.</p></div>
+  </div>
+  <div class="card" data-cat="powers" data-searchable>
+    <h3>(3) Вхід та обшук ділянок і приміщень — частина I</h3><p class="de">Betreten und Durchsuchen von Grundstücken und Räumen I</p>
+    <ul><li>Стосується <strong>не лише квартир!</strong></li><li><strong>Обшук житла у зв'язку зі злочином</strong> <span class="lawtag">§119 StPO</span> — умова: розпорядження прокуратури на підставі судового дозволу <strong>АБО</strong> невідкладність.</li><li><strong>Вхід та обшук для обов'язку допомоги</strong> та при небезпечних нападах <span class="lawtag">§39 SPG</span>.</li><li><strong>Вхід у зв'язку з іноземцями</strong> <span class="lawtag">§36 FPG</span>:<ul><li>при підозрі присутності трьох іноземців, з яких хоча б один незаконно;</li><li>лише вхід і відкриття ємностей, достатньо великих, щоб сховати людину;</li><li>кілька осіб мають імовірно перебувати в одному приміщенні;</li><li><strong>обмежено лише входом (без обшуку!)</strong>.</li></ul></li></ul>
+  </div>
+  <div class="card" data-cat="powers" data-searchable>
+    <h3>(3) Вхід та обшук — частина II</h3><p class="de">Betreten und Durchsuchen von Grundstücken und Räumen II</p>
+    <ul><li><strong>Наказ на обшук у зв'язку з іноземцями</strong> <span class="lawtag">§35 BFA-VG</span>:<ul><li>наказ BFA на вхід та обшук приміщень;</li><li>умови: там імовірно перебуває іноземець,<ul><li>щодо якого є наказ про затримання, <strong>АБО</strong></li><li>щодо якого має бути застосовано Schubhaft, <strong>ТА</strong></li><li>це необхідно для виконання наказу/рішення про Schubhaft.</li></ul></li></ul></li></ul>
+    <div class="box tip"><span class="box-t">Що це означає для вас</span><p>Запитайте, це «лише вхід» (за FPG) чи повноцінний «обшук» (потребує наказу/дозволу). Якщо обшук за StPO — має бути розпорядження прокуратури або невідкладність. Спокійно попросіть показати документ/наказ.</p></div>
+  </div>
+  <div class="card" data-cat="powers" data-searchable>
+    <h3>Застосування безпосереднього примусу</h3><p class="de">Anwendung unmittelbarer Zwangsgewalt</p>
+    <ul><li>Повноваження можуть виконуватися із примусом — <strong>лише якщо це передбачено законом</strong>.</li><li>Примус має бути <strong>попереджений та оголошений</strong> заздалегідь.</li><li>Обов'язкова <strong>перевірка пропорційності</strong>.</li></ul>
+    <div class="box warn"><span class="box-t">Важливо</span><p>Поліція не може одразу застосувати силу без попередження. Не чиніть фізичного опору (це окремий злочин), але фіксуйте те, що відбувається.</p></div>
+  </div>
+  <section class="sec-head" data-cat="rights"><span class="sec-num">2</span><h2>Ваші права під час поліцейської операції</h2></section>
+  <div class="card" data-cat="rights" data-searchable>
+    <h3>Суттєві права — частина I</h3><p class="de">Rechte im Zusammenhang mit einem Polizeieinsatz I</p>
+    <p><strong>Дотримання основних прав:</strong></p><ul><li>Недоторканність житла (Art.9 StGG, Art.8 EMRK, Art.7 GRC).</li><li>Право на особисту свободу (Art.5 EMRK; Art.6 GRC).</li><li>Право на приватне та сімейне життя (Art.8 EMRK; Art.7 GRC).</li></ul>
+    <p><strong>Пропорційність:</strong></p><ul><li>співвідношення між метою і самим втручанням;</li><li>чи доступні м'якші засоби?</li></ul>
+    <p><strong>Право на інформацію:</strong></p><ul><li>при затриманні — якнайшвидше повідомлення про підстави <strong>зрозумілою мовою</strong>;</li><li>попередження про безпосередній примус;</li><li>інформація про привід і мету втручання <span class="lawtag">§30 SPG</span>;</li><li>протокол про вхід (частково на вимогу — §36 FPG), обшук, вилучення, затримання.</li></ul>
+    <p><strong>Права при обшуку житла:</strong></p><ul><li>добровільно видати шукані предмети до обшуку;</li><li>право на присутність (свою та довіреної особи);</li><li>право на протокол.</li></ul>
+  </div>
+  <div class="card" data-cat="rights" data-searchable>
+    <h3>Суттєві права — частина II</h3><p class="de">Rechte im Zusammenhang mit einem Polizeieinsatz II</p>
+    <p><strong>Право на поважне ставлення</strong> (RLVO):</p><ul><li>добровільну участь можна використати, лише якщо особа <strong>усвідомлює добровільність</strong> <span class="lawtag">§4 RLVO</span>;</li><li>уникати «видимості дискримінації» <span class="lawtag">§5 Abs.1</span>;</li><li>звертатися на «Ви» <span class="lawtag">§5 Abs.2</span>;</li><li>обшук — особою <strong>тієї ж статі</strong> <span class="lawtag">§5 Abs.3</span>;</li><li>обов'язок інформувати <span class="lawtag">§6, §8</span>;</li><li>повідомлення службового номера <span class="lawtag">§9</span>.</li></ul>
+    <p><strong>Відмова давати свідчення (право мовчати):</strong></p><ul><li>попереднє питання: чи взагалі є обов'язок свідчити?</li><li>можна відмовитися, якщо наражаєте себе або <strong>близьку особу</strong> на <strong>кримінальне переслідування</strong> <span class="lawtag">§157 Abs.1 Z1 StPO</span>.</li></ul>
+  </div>
+  <div class="card" data-cat="rights" data-searchable>
+    <h3>Суттєві права — частина III (право мовчати для консультантів)</h3><p class="de">Rechte im Zusammenhang mit einem Polizeieinsatz III</p>
+    <p><strong>Продовження про відмову свідчити:</strong></p><ul><li>адвокати тощо: усе, що стало відомо в цій якості <span class="lawtag">§157 Abs.1 Z2 StPO</span>;</li><li>психологи, працівники пробації, співробітники визнаних установ психосоціальної консультації <span class="lawtag">§157 Abs.1 Z3 StPO</span>.</li></ul>
+    <p><strong>Чи є право мовчати у консультантів / соцпрацівників?</strong></p><ul><li>За аналогією з адвокатами <span class="lawtag">§157 Abs.1 Z2</span> — <em>вузьке</em> тлумачення.</li><li>За аналогією з психологами <span class="lawtag">§157 Abs.1 Z3</span> — <em>широке</em> тлумачення (Lebenshilfe, сімейна консультація, реабілітація).</li></ul>
+    <div class="box tip"><span class="box-t">Що це означає для вас</span><p>Якщо ви консультант/соцпрацівник, можете покликатися на службову таємницю щодо того, що дізналися при роботі з клієнтом: «Посилаюся на свою професійну таємницю».</p></div>
+  </div>
+  <div class="card" data-cat="rights behavior" data-searchable>
+    <h3>Труднощі на практиці — до чого бути готовими</h3><p class="de">Schwierigkeiten in der Praxis</p>
+    <ul><li><strong>Залякування та тиск.</strong></li><li><strong>Присутні кілька органів</strong> — напр. WEGA забезпечує безпеку, але без компетенції по суті; керівництво незрозуміле.</li><li><strong>Поліція відмовляє в інформації</strong>, посилаючись на захист даних.</li><li><strong>Поліція ізолює</strong> постраждалих.</li><li><strong>Поліція стверджує «добровільність»</strong> — часто неправдиво.</li><li><strong>«Підміна» правових підстав</strong>:<ul><li>напр. «випадково» помічений запах марихуани;</li><li>напр. «агресивна поведінка» (опір владі).</li></ul></li></ul>
+    <div class="box warn"><span class="box-t">Будьте пильні</span><p>Якщо поліція каже «ви ж добровільно» — чітко скажіть, що добровільності немає. Якщо раптово змінюється підстава втручання — зафіксуйте це, це важливо для оскарження.</p></div>
+  </div>
+  <section class="sec-head" data-cat="behavior"><span class="sec-num">3</span><h2>Як правильно поводитися</h2></section>
+  <div class="card" data-cat="behavior" data-searchable>
+    <h3>Правильна поведінка — частина I</h3><p class="de">Richtiger Umgang im Zusammenhang mit einem Polizeieinsatz I</p>
+    <p><strong>Заздалегідь:</strong></p><ul><li>зібрати інформацію;</li><li>навчання співробітників;</li><li>інформування мешканців;</li><li>підлаштувати структури (Хто в будинку? Хто відповідає? Що у вільному доступі?);</li><li>інструкції та чеклісти.</li></ul>
+    <p><strong>Під час операції:</strong></p><ul><li><strong>Зберігати спокій!</strong></li><li>уникати перешкоджання — сигналізувати про співпрацю;</li><li>залучити керівництво / відповідальну особу;</li><li><strong>наголошувати, що добровільності немає</strong>;</li><li>посилатися на єдину позицію керівництва;</li><li>отримати згоду постраждалих («Можна мені бути присутнім?»).</li></ul>
+  </div>
+  <div class="card" data-cat="behavior" data-searchable>
+    <h3>Правильна поведінка — частина II</h3><p class="de">Richtiger Umgang im Zusammenhang mit einem Polizeieinsatz II</p>
+    <p><strong>Зібрати інформацію:</strong></p><ul><li>про керівника операції (Einsatzleitung);</li><li>про причину операції;</li><li>про службовий номер (Dienstnummer).</li></ul>
+    <p><strong>Обережно з поясненнями:</strong></p><ul><li>до формального допиту немає обов'язку давати відомості;</li><li><strong>краще не давати відомостей, ніж давати неправдиві</strong>;</li><li>посилатися на захист даних та право не свідчити;</li><li>наполягати на офіційному виклику (Ladung);</li><li>не давати обов'язкових обіцянок.</li></ul>
+    <p><strong>Спостерігати та документувати:</strong></p><ul><li>уникати перешкоджання (відступити, дати місце);</li><li><strong>знімати для доказів дозволено</strong> (без публікації!);</li><li>залучити свідків (за згодою постраждалих).</li></ul>
+    <p><strong>Після операції:</strong></p><ul><li>скласти протокол з пам'яті (Gedächtnisprotokoll);</li><li>звернутися за консультацією;</li><li>обміркувати та подати правові засоби;</li><li>за потреби вийти на контакт з органами.</li></ul>
+  </div>
+  <section class="sec-head" data-cat="phrases"><span class="sec-num">💬</span><h2>Готові фрази німецькою — можна зачитати поліції дослівно</h2></section>
+  <div class="card" data-cat="phrases behavior" data-searchable>
+    <div class="box note"><span class="box-t">Як користуватися</span><p>Говоріть спокійно і ввічливо. Можна прочитати фразу вголос або показати з екрана. Натисніть значок, щоб скопіювати фразу.</p></div>
+    <div class="phrase-group">Запитати підставу, причину та службовий номер</div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Auf welcher rechtlichen Grundlage handeln Sie?"</p><p class="ua-say">На якій правовій підставі ви дієте?</p></div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Was ist der Grund und der Zweck Ihres Einschreitens?"</p><p class="ua-say">Яка причина і мета вашого втручання?</p></div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Nennen Sie mir bitte Ihre Dienstnummer."</p><p class="ua-say">Назвіть, будь ласка, ваш службовий номер.</p></div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Wer ist die Einsatzleitung?"</p><p class="ua-say">Хто керівник цієї операції?</p></div>
+    <div class="phrase-group">Відмова давати свідчення та інформацію</div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Ich mache keine Angaben."</p><p class="ua-say">Я не даю жодних відомостей.</p></div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Ich berufe mich auf mein Aussageverweigerungsrecht."</p><p class="ua-say">Я користуюся своїм правом не давати свідчень.</p></div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Ich berufe mich auf den Datenschutz."</p><p class="ua-say">Посилаюся на захист персональних даних.</p></div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Ich bestehe auf einer schriftlichen Ladung."</p><p class="ua-say">Я наполягаю на письмовому виклику (повістці).</p></div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Ich möchte eine:n Dolmetscher:in."</p><p class="ua-say">Я хочу перекладача.</p></div>
+    <div class="phrase-group">Немає добровільності</div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Ich nehme an dieser Amtshandlung nicht freiwillig teil."</p><p class="ua-say">Я не беру участь у цій службовій дії добровільно.</p></div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Mir ist bewusst, dass hier keine Freiwilligkeit vorliegt."</p><p class="ua-say">Я усвідомлюю, що тут немає добровільності.</p></div>
+    <div class="phrase-group">Як довірена особа / супровід</div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Ich bin die Vertrauensperson. Darf ich anwesend sein?"</p><p class="ua-say">Я довірена особа. Чи можу я бути присутнім?</p></div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Als Berater:in berufe ich mich auf meine berufliche Verschwiegenheit (§ 157 StPO)."</p><p class="ua-say">Як консультант я посилаюся на професійну таємницю (§ 157 StPO).</p></div>
+    <div class="phrase-group">Вхід та обшук приміщень</div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Handelt es sich um ein bloßes Betreten oder um eine Durchsuchung?"</p><p class="ua-say">Це лише вхід чи повноцінний обшук?</p></div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Haben Sie eine gerichtliche Anordnung oder einen Durchsuchungsbefehl?"</p><p class="ua-say">Чи маєте ви судовий дозвіл або наказ на обшук?</p></div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Ich widerspreche der Durchsuchung."</p><p class="ua-say">Я заперечую проти обшуку. <em>(словами, без фізичного опору)</em></p></div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Ich verlange ein Protokoll."</p><p class="ua-say">Я вимагаю протокол.</p></div>
+    <div class="phrase-group">Затримання та документування</div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Bitte teilen Sie mir in einer verständlichen Sprache mit, warum ich festgehalten werde."</p><p class="ua-say">Повідомте мені зрозумілою мовою, чому мене затримують.</p></div>
+    <div class="phrase"><button class="copy" title="Копіювати">⧉</button><p class="de-say">„Ich dokumentiere diese Amtshandlung zu Beweiszwecken."</p><p class="ua-say">Я фіксую цю службову дію для доказів. <em>(зйомка дозволена, без публікації)</em></p></div>
+    <div class="box warn"><span class="box-t">Пам'ятайте</span><p>Фрази захищають ваші права, але <strong>не перешкоджайте фізично</strong> службовій дії — це окреме правопорушення. Заперечуйте словами, фіксуйте, потім оскаржуйте.</p></div>
+  </div>
+  <section class="sec-head" data-cat="checklist"><span class="sec-num">4</span><h2>Чеклісти</h2></section>
+  <div class="card" data-cat="checklist behavior" data-searchable>
+    <h3>Чекліст: як діяти під час поліцейської операції</h3><p class="de">Checkliste: Wie tun bei einem Polizeieinsatz</p>
+    <ol class="check"><li>Залишатися спокійним і привітним, сигналізувати про співпрацю.</li><li>Залучити керівництво, колегу, довірену особу.</li><li>Запитати про керівника операції, службовий номер, причину та мету втручання.</li><li>Розкривати якомога менше інформації (захист даних, службова інструкція, конфіденційність).</li><li>Наголосити, що добровільності немає.</li><li>Не перешкоджати службовій дії!</li><li>Отримати згоду постраждалих («Чи можна мені бути присутнім?»).</li><li>Супроводжувати, спостерігати та документувати.</li></ol>
+  </div>
+  <div class="card" data-cat="checklist legal" data-searchable>
+    <h3>Чекліст: протокол з пам'яті (Gedächtnisprotokoll)</h3><p class="de">Checkliste: Gedächtnisprotokoll</p>
+    <p>Служить для документування та подальшої перевірки, чи була операція незаконною. Складіть його якнайшвидше після події.</p>
+    <p><strong>Що має містити:</strong></p><ul><li>місце, дата, час;</li><li>хто склав (автор);</li><li>які органи/особи були присутні (службовий номер, форма, кількість, опис);</li><li>хронологічний опис операції (з місцем і присутніми);</li><li>назвати свідків:<ul><li>ім'я, адреса;</li><li>чому можуть дати корисні свідчення;</li></ul></li><li>назвати та додати інші докази;</li><li>що сталося після операції:<ul><li>частини справи, передані згодом;</li><li>доступ до матеріалів справи (Akteneinsicht);</li><li>інформація після запиту до органу.</li></ul></li></ul>
+    <div class="box tip"><span class="box-t">Порада</span><p>Записуйте деталі одразу — пам'ять швидко стирається. Службовий номер, час, точні фрази поліції та кількість осіб — усе це вирішальне для успішної скарги.</p></div>
+  </div>
+  <section class="sec-head" data-cat="legal"><span class="sec-num">5</span><h2>Правовий захист — як оскаржити</h2></section>
+  <div class="card" data-cat="legal" data-searchable>
+    <h3>Правовий захист I: скарга на захід (Maßnahmenbeschwerde)</h3><p class="de">Rechtsschutz I: Maßnahmenbeschwerde</p>
+    <p><strong>Скарга проти незаконних дій «адміністративних органів»:</strong></p><ul><li>стосується наказової чи примусової влади;</li><li><strong>строк: шість тижнів</strong>;</li><li>компетенція: адміністративний суд (Verwaltungsgericht);</li><li>обов'язкового представництва немає (можна без адвоката).</li></ul>
+    <p><strong>Що має містити:</strong></p><ul><li>виклад обставин (Sachverhalt);</li><li>за можливості — зазначення органу;</li><li>клопотання (Antrag).</li></ul>
+    <p><strong>Можливі наслідки:</strong></p><ul><li>встановлення незаконності;</li><li>відшкодування витрат (можливо + відповідальність держави, Amtshaftung).</li></ul>
+  </div>
+  <div class="card" data-cat="legal" data-searchable>
+    <h3>Правовий захист II: інші скарги та строки</h3><p class="de">Rechtsschutz II</p>
+    <ul><li><strong>Заперечення через порушення права у слідстві</strong> <span class="lawtag">§106 StPO</span>. <strong>Строк: 6 тижнів</strong>.</li><li><strong>Скарга проти судової ухвали</strong> <span class="lawtag">§87 StPO</span> — <strong>строк: 14 днів</strong>.</li><li><strong>Скарга через інше порушення прав</strong> <span class="lawtag">§88 Abs.2 SPG</span>. <strong>Строк: 6 тижнів</strong>.</li><li><strong>Скарга на службовий нагляд</strong> <span class="lawtag">§89 SPG</span>. <strong>Строк: 6 тижнів</strong>.</li><li><strong>Звернення до Народного адвоката</strong> (Volksanwaltschaft) — вільна форма, без обов'язкової сили, <strong>без строку</strong>.</li></ul>
+    <div class="box note"><span class="box-t">Не пропустіть строк</span><p>Більшість скарг мають строк 6 тижнів, а скарга на судову ухвалу — лише 14 днів. Порахуйте строк від дня події та зверніться за консультацією завчасно.</p></div>
+  </div>
+  <footer><div class="disc"><strong>Застереження.</strong> Це неофіційний переклад та спрощене пояснення навчальних матеріалів для орієнтації. Це <strong>не юридична консультація</strong>. У конкретній ситуації зверніться за фаховою правовою допомогою (напр. Verein Ute Bock, ЮрКонсультації для біженців, адвокат).</div></footer>
+  <div class="no-results" id="noResults"><div class="big">🔍</div><p>Нічого не знайдено. Спробуйте інше слово — напр. «обшук», «свідчення», «строк», «WEGA».</p></div>
+</main>
+<script>
+(function(){
+  const search=document.getElementById('search'),clearBtn=document.getElementById('clear'),note=document.getElementById('resultNote'),noResults=document.getElementById('noResults'),chips=document.querySelectorAll('.chip'),cards=Array.from(document.querySelectorAll('.card[data-searchable]')),headers=Array.from(document.querySelectorAll('.sec-head')),intro=document.querySelector('.intro');
+  let activeCat='all';
+  cards.forEach(c=>c.dataset.orig=c.innerHTML);
+  function stripMarks(){cards.forEach(c=>{c.innerHTML=c.dataset.orig;});}
+  function matchCat(card){if(activeCat==='all')return true;return (card.dataset.cat||'').split(/\s+/).includes(activeCat);}
+  function highlight(card,term){if(!term)return;const rx=new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');const walker=document.createTreeWalker(card,NodeFilter.SHOW_TEXT,null);const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);nodes.forEach(n=>{if(rx.test(n.nodeValue)){const span=document.createElement('span');span.innerHTML=n.nodeValue.replace(rx,'<mark>$1</mark>');n.parentNode.replaceChild(span,n);}});}
+  function run(){const q=search.value.trim().toLowerCase();clearBtn.style.display=q?'flex':'none';stripMarks();let visible=0;cards.forEach(card=>{const inCat=matchCat(card);const hit=q===''?true:card.textContent.toLowerCase().includes(q);const show=inCat&&hit;card.classList.toggle('hidden',!show);if(show){visible++;if(q)highlight(card,search.value.trim());}});headers.forEach(h=>{const inCat=activeCat==='all'||(h.dataset.cat||'').split(/\s+/).includes(activeCat);h.classList.toggle('hidden',!inCat||(q!==''&&!hasVisibleCardAfter(h)));});if(intro){const introHit=q===''||intro.textContent.toLowerCase().includes(q);intro.classList.toggle('hidden',!(activeCat==='all'&&introHit));}noResults.classList.toggle('show',visible===0);if(q===''&&activeCat==='all'){note.textContent='';}else{note.textContent=visible+' '+plural(visible)+(q?' за запитом «'+search.value.trim()+'»':'');}}
+  function hasVisibleCardAfter(header){let el=header.nextElementSibling;while(el&&!el.classList.contains('sec-head')){if(el.classList.contains('card')&&!el.classList.contains('hidden'))return true;el=el.nextElementSibling;}return false;}
+  function plural(n){const d=n%10,dd=n%100;if(d===1&&dd!==11)return 'розділ';if(d>=2&&d<=4&&(dd<10||dd>=20))return 'розділи';return 'розділів';}
+  search.addEventListener('input',run);
+  clearBtn.addEventListener('click',()=>{search.value='';search.focus();run();});
+  const saveBtn=document.getElementById('saveBtn'),pdfBtn=document.getElementById('pdfBtn'),saveHint=document.getElementById('saveHint');
+  if(saveBtn){saveBtn.addEventListener('click',()=>{search.value='';activeCat='all';chips.forEach(c=>c.classList.toggle('active',c.dataset.cat==='all'));run();const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;const blob=new Blob([html],{type:'text/html;charset=utf-8'});const url=URL.createObjectURL(blob);let openedTab=false;try{const w=window.open(url,'_blank');openedTab=!!w;}catch(e){}try{const a=document.createElement('a');a.href=url;a.download='prava-policiya-avstriya.html';document.body.appendChild(a);a.click();a.remove();}catch(e){}setTimeout(()=>URL.revokeObjectURL(url),4000);if(saveHint){saveHint.textContent=openedTab?'✓ Відкрито в новій вкладці — там натисніть «Поділитися» / «Зберегти»':'Якщо нічого не сталося — натисніть «🖨 PDF» → «Зберегти як PDF»';}});}
+  if(pdfBtn){pdfBtn.addEventListener('click',()=>window.print());}
+  document.getElementById('main').addEventListener('click',function(e){const btn=e.target.closest('.copy');if(!btn)return;const phrase=btn.closest('.phrase');const de=phrase?phrase.querySelector('.de-say'):null;if(!de)return;const text=de.textContent.replace(/[„""]/g,'').trim();const done=()=>{btn.classList.add('done');btn.textContent='✓';setTimeout(()=>{btn.classList.remove('done');btn.textContent='⧉';},1200);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(fallback);}else{fallback();}function fallback(){const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(_){}document.body.removeChild(ta);}});
+  chips.forEach(ch=>ch.addEventListener('click',()=>{chips.forEach(c=>c.classList.remove('active'));ch.classList.add('active');activeCat=ch.dataset.cat;run();}));
+  run();
+})();
+</script>
+</body>
+</html>
